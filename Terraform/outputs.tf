@@ -26,3 +26,31 @@ output "account_replication_type" {
 output "container_access_type" {
   value = module.storage_account.container_access_type
 }
+
+# VIRTUAL_NETWORK
+output "vnet_name" {
+  value = module.virtual_network.vnet_name
+}
+
+output "vnet_id" {
+  value = module.virtual_network.vnet_id
+}
+
+output "subnet_name" {
+  value = module.virtual_network.subnet_name
+}
+
+output "subnet_id" {
+  value = module.virtual_network.subnet_id
+}
+
+output "subnettwo_name" {
+    value = module.virtual_network.subnettwo_name
+}
+
+output "subnettwo_id" {
+  value = module.virtual_network.subnettwo_id
+}
+
+
+

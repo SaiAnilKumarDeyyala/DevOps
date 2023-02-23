@@ -5,7 +5,7 @@ variable "resource_group_name" {
 
 variable "storage_account_name" {
     type    = string
-    default = "tfomtestt"
+    default = "terraformtrdsdsvgr"
 }
 
 variable "account_tier" {
