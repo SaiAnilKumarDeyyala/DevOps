@@ -1,0 +1,39 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'az-terraform'
+    scriptType: 'ps'
+    scriptLocation: 'scriptPath'
+    scriptPath: './Terraform/Pipelines/azstorage.ps1'
+
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'az-terraform'
+    backendAzureRmResourceGroupName: 'Devops-RG'
+    backendAzureRmStorageAccountName: '$(terraformstorageaccount)'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraform.tfstate'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'az-terraform'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'az-terraform'
