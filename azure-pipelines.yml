@@ -5,12 +5,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: AzureCLI@2
+- task: PowerShell@2
   inputs:
-    azureSubscription: 'az-terraform'
-    scriptType: 'ps'
-    scriptLocation: 'scriptPath'
-    scriptPath: './Terraform/Pipelines/azstorage.ps1'
+    targetType: 'inline'
+    script: 'ls'
 
 - task: TerraformInstaller@1
   inputs:
