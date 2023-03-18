@@ -10,9 +10,14 @@ steps:
     targetType: 'inline'
     script: 'cd Terraform'
 
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
+
 - task: TerraformInstaller@1
   inputs:
     terraformVersion: 'latest'
+
 
 - task: TerraformTaskV4@4
   inputs:
