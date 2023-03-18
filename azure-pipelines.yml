@@ -13,13 +13,12 @@ steps:
       cd Terraform
       ls
 
-- task: CmdLine@2
-  inputs:
-    script: 'ls'
-
 - task: TerraformInstaller@1
   inputs:
     terraformVersion: 'latest'
+
+- checkout: self
+  path: Terraform
 
 
 - task: TerraformTaskV4@4
@@ -32,14 +31,7 @@ steps:
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'terraform.tfstate'
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo "______________"
-      
-      ls
-      
-      echo "______________"
+
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
