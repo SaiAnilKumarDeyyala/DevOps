@@ -32,6 +32,14 @@ steps:
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'terraform.tfstate'
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "______________"
+      
+      ls
+      
+      echo "______________"
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
