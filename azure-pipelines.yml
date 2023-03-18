@@ -20,7 +20,7 @@ steps:
     command: 'init'
     backendServiceArm: 'az-terraform'
     backendAzureRmResourceGroupName: 'Devops-RG'
-    backendAzureRmStorageAccountName: '$(terraformstorageaccount)'
+    backendAzureRmStorageAccountName: 'devopsstorage0101'
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'terraform.tfstate'
 
