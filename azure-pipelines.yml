@@ -5,20 +5,22 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      ls
-      cd Terraform
-      ls
 
 - task: TerraformInstaller@1
   inputs:
     terraformVersion: 'latest'
 
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
+
+
 - checkout: self
   path: Terraform
+
+- task: CmdLine@2
+  inputs:
+    script: 'ls'
 
 
 - task: TerraformTaskV4@4
