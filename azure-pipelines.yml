@@ -8,7 +8,10 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'cd Terraform'
+    script: |
+      ls
+      cd Terraform
+      ls
 
 - task: CmdLine@2
   inputs:
